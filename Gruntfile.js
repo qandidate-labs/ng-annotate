@@ -10,14 +10,22 @@ module.exports = function(grunt) {
         demo: {
             files: {
                 'WithAnnotationsCtrl.js': ['WithoutAnnotationsCtrl.js']
-            },
+            }
+        }
+    },
+    uglify: {
+        demo: {
+            files: {
+                'WithAnnotationsCtrl.min.js': ['WithAnnotationsCtrl.js']
+            }
         }
     }
   });
 
   grunt.loadNpmTasks('grunt-ng-annotate');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
   // Default task.
-  grunt.registerTask('default', ['ngAnnotate']);
+  grunt.registerTask('default', ['ngAnnotate', 'uglify']);
 
 };
